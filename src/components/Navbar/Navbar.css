@@ -64,6 +64,14 @@
     border-radius: 4px;
     text-decoration: underline;
     z-index: 1;
+    display: none;
 }
 
-/* stoped at 33:47 */
+.navbar .dropdown p{
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.navbar-profile:hover .dropdown{
+    display: block;
+}
