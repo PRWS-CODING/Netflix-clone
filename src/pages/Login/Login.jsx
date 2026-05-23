@@ -1,18 +1,23 @@
-import React from 'react'
-import './Login.css'
-import logo from '../../assets/logo.png'
+import React, { useState } from "react";
+import "./Login.css";
+import logo from "../../assets/logo.png";
 
 function Login() {
+  const [signState, setSignState] = useState("Sign In");
   return (
-    <div className='login'>
-      <img src={logo} className='login-logo' alt="" />
+    <div className="login">
+      <img src={logo} className="login-logo" alt="" />
       <div className="login-form">
-        <h1>Sign Up</h1>
+        <h1>{signState}</h1>
         <form>
-          <input type="text" placeholder='Your Name' />
-          <input type="email" placeholder='Email' />
-          <input type="password" placeholder='Password' />
-          <button>Sign Up</button>
+          {signState === "Sign Up" ? (
+            <input type="text" placeholder="Your Name" />
+          ) : (
+            <></>
+          )}
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>{signState}</button>
           <div className="form-help">
             <div className="remember-me">
               <input type="checkbox" />
@@ -22,12 +27,19 @@ function Login() {
           </div>
         </form>
         <div className="form-switch">
-          <p>New to Netflix? <span>Sign Up</span></p>
-          <p>Already Have an Account? <span>Sign In</span></p>
+          {signState === "Sign In" ? (
+            <p>
+              New to Netflix? <span onClick={() => {setSignState("Sign Up")}}>Sign Up</span>
+            </p>
+          ) : (
+            <p>
+              Already Have an Account? <span onClick={() => {setSignState("Sign In")}}>Sign In</span>
+            </p>
+          )}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
