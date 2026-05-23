@@ -29,11 +29,25 @@ function Login() {
         <div className="form-switch">
           {signState === "Sign In" ? (
             <p>
-              New to Netflix? <span onClick={() => {setSignState("Sign Up")}}>Sign Up</span>
+              New to Netflix?{" "}
+              <span
+                onClick={() => {
+                  setSignState("Sign Up");
+                }}
+              >
+                Sign Up
+              </span>
             </p>
           ) : (
             <p>
-              Already Have an Account? <span onClick={() => {setSignState("Sign In")}}>Sign In</span>
+              Already Have an Account?{" "}
+              <span
+                onClick={() => {
+                  setSignState("Sign In");
+                }}
+              >
+                Sign In
+              </span>
             </p>
           )}
         </div>
