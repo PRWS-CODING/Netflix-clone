@@ -82,16 +82,11 @@ src/
 └── App.jsx          # Main application routing and context
 ```
 
-## 📈 Future Roadmap
-
-- [ ] Integrate TMDB API for dynamic movie/show data.
-- [ ] Implement "My List" functionality using Firestore.
-- [ ] Add video playback capability.
 
 ---
 
 **Note**: This project is for portfolio purposes and demonstrates full-stack integration with React and Firebase.
 
-**Author**: [Your Name]  
-**LinkedIn**: [Your LinkedIn Profile]  
-**Email**: [Your Email Address]
+**Author**: [Paul Rosenbaum]  
+**LinkedIn**: [https://www.linkedin.com/in/paul-rosenbaum-2b068336b/]  
+**Email**: [prwscodingwsc@gmail.com]
