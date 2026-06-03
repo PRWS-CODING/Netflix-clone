@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "./TitleCards.css";
-import cards_data from "../../assets/cards/Cards_data";
+// import cards_data from "../../assets/cards/Cards_data";
 import { Link } from "react-router-dom";
 
 function TitleCards({ title, category }) {
