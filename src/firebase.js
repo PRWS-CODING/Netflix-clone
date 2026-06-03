@@ -33,7 +33,10 @@ const signup = async (name, email, password) => {
     });
   } catch (error) {
     console.error(error);
-    toast.error(error.code.split("/")[1].split("-").join(" "));
+    const message =
+      error.code?.split("/")[1]?.split("-").join(" ") ||
+      "An error occurred during signup";
+    toast.error(message);
   }
 };
 
@@ -42,7 +45,10 @@ const login = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.error(error);
-    toast.error(error.code.split("/")[1].split("-").join(" "));
+    const message =
+      error.code?.split("/")[1]?.split("-").join(" ") ||
+      "Invalid login credentials";
+    toast.error(message);
   }
 };
 
