@@ -7,24 +7,31 @@ import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import DisclaimerBanner from "./components/DisclaimerBanner/DisclaimerBanner";
 
 const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        console.log("Logged in");
-        navigate("/");
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      const isGuest = localStorage.getItem("netflix_guest_mode") === "true";
+      if (user || isGuest) {
+        if (window.location.pathname === "/login") {
+          navigate("/");
+        }
       } else {
-        console.log("Logged out");
-        navigate("/login");
+        if (window.location.pathname !== "/login") {
+          navigate("/login");
+        }
       }
     });
-  }, []);
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   return (
     <div>
+      <DisclaimerBanner />
       <ToastContainer theme="dark" />
       <Routes>
         <Route path="/" element={<Home />} />

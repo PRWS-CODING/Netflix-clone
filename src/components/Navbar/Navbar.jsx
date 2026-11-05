@@ -6,9 +6,11 @@ import bell_icon from "../../assets/bell_icon.svg";
 import profile_img from "../../assets/profile_img.png";
 import caret_icon from "../../assets/caret_icon.svg";
 import { logout } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navRef = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,10 +26,19 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleSignOut = () => {
+    localStorage.removeItem("netflix_guest_mode");
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div ref={navRef} className="navbar">
       <div className="navbar-left">
-        <img src={logo} alt="" />
+        <div className="navbar-logo-wrap">
+          <img src={logo} alt="Netflix Clone Logo" />
+          <span className="navbar-demo-tag">DEMO</span>
+        </div>
         <ul>
           <li>Home</li>
           <li>TV Shows</li>
@@ -45,7 +56,7 @@ function Navbar() {
           <img src={profile_img} alt="" className="profile" />
           <img src={caret_icon} alt="" />
           <div className="dropdown">
-            <p onClick={() => {logout()}}>Sign Out of Netflix</p>
+            <p onClick={handleSignOut}>Sign Out</p>
           </div>
         </div>
       </div>

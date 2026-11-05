@@ -53,6 +53,7 @@ const login = async (email, password) => {
 };
 
 const logout = () => {
+  localStorage.removeItem("netflix_guest_mode");
   signOut(auth).catch((error) => {
     console.error("Logout Error:", error);
   });

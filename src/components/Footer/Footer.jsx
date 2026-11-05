@@ -27,7 +27,7 @@ function Footer() {
         <li>Corporate Information</li>
         <li>Contact Us</li>
       </ul>
-      <p className='copyright-text'>© 1997-2023 Netflix, Inc.</p>
+      <p className='copyright-text'>Educational Portfolio Project — Not affiliated with Netflix, Inc. Built for demonstration and learning purposes.</p>
     </div>
   )
 }

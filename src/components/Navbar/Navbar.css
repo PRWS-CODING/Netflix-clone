@@ -20,6 +20,23 @@
   gap: 50px;
 }
 
+.navbar-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-demo-tag {
+  background: rgba(229, 9, 20, 0.25);
+  border: 1px solid #e50914;
+  color: #ff6b6b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
 .navbar-left img {
   width: 90px;
 }
